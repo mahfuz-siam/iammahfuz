@@ -1,0 +1,731 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    text-decoration: none;
+    border: none;
+    outline: none;
+    scroll-behavior: smooth;
+    font-family: "Poppins", sans-serif;
+}
+
+:root {
+    --bg-color: rgb(0, 0, 0);
+    --second-bg-color: #000000;
+    --text-color: rgb(255, 255, 255);
+    --main-color: rgb(7, 180, 248);
+    --hover-color:rgb(12, 186, 255);
+}
+.loader-container {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background-color: rgb(0, 0, 0); /* Optional for background color */
+    display: flex;
+    justify-content: center; /* Horizontally center */
+    align-items: center; /* Vertically center */
+    z-index: 9999;
+    opacity: 1; /* Initial opacity for the transition */
+    transition: opacity 1s ease; /* Smooth transition */
+  }
+  
+  
+  .square {
+    width: 8px;
+    height: 30px;
+    background: rgb(71, 195, 248);
+    border-radius: 10px;
+    display: block;
+    animation: turn 5s ease infinite; /* Increased from 2.5s to 5s */
+    box-shadow: rgb(71, 195, 248) 0px 1px 15px 0px;
+  }
+  
+  
+  .top, .bottom, .left, .right {
+    position: absolute;
+    left: 40%;
+    top: 50%;
+  }
+  
+  .top {
+    transform: rotate(90deg);
+  }
+  
+  .bottom {
+    transform: rotate(-90deg);
+  }
+  
+  .right {
+    transform: rotate(180deg);
+  }
+  
+  @keyframes turn {
+    0% {
+      transform: translateX(0) translateY(0) rotate(0);
+    }
+    70% {
+      transform: translateX(400%) translateY(100%) rotate(90deg);
+    }
+    100% {
+      transform: translateX(0) translateY(0) rotate(0);
+    }
+  }
+ 
+  .container {
+    position: relative; /* Positioned relative to the loader container */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: auto;
+    height: auto;
+  }
+  
+html {
+    font-size: 62.5%;
+    overflow-x: hidden;
+}
+
+body {
+    background: var(--bg-color);
+    color: var(--text-color);
+    font-size: 1.6rem;
+    line-height: 1.6;
+}
+
+.header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    padding: 2rem 12%;
+    background: var(--second-bg-color);
+    backdrop-filter: blur(10px);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    z-index: 1000;
+}
+
+.logo {
+    font-size: 3rem;
+    color: var(--text-color);
+    font-weight: 800;
+    cursor: pointer;
+    transition: transform 0.3s ease;
+}
+
+.logo:hover {
+    transform: scale(1.1);
+}
+
+.logo span {
+    text-shadow: 0 0 25px var(--main-color);
+    color: var(--main-color);
+}
+
+.red {
+    color: var(--main-color);
+}
+
+.navbar a {
+    font-size: 1.8rem;
+    color: var(--text-color);
+    margin-left: 4rem;
+    font-weight: 500;
+    transition: color 0.3s ease, border-bottom 0.3s ease;
+    border-bottom: 3px solid transparent;
+}
+
+.navbar a:hover,
+.navbar a.active {
+    color: var(--main-color);
+    border-bottom: 3px solid var(--main-color);
+}
+
+#menu-icon {
+    font-size: 3.6rem;
+    color: var(--main-color);
+    display: none;
+}
+
+section {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 5rem;
+    padding: 5rem 0;
+}
+
+.home-content {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: center;
+    margin-top: 5rem;
+    max-width: 600px;
+}
+
+.home-content h3 {
+    margin-bottom: 2rem;
+    font-size: 2.8rem;
+}
+
+.home-content h1 {
+    font-size: 6rem;
+    font-weight: 700;
+    margin-top: 1.5rem;
+    line-height: 1.2;
+}
+
+.home-image img {
+    margin-top: 200px;
+    left: 50px;
+    position: relative;
+    top: 0;
+    width: 500px;
+    height: 500px;
+    border-radius: 50%;
+    cursor: pointer;
+    transition: all 0.4s ease-in-out;
+}
+
+.home-image img:hover {
+    box-shadow: 0 0 25px var(--main-color),
+                0 0 50px var(--main-color),
+                0 0 100px var(--main-color);
+    transform: scale(1.05);
+}
+
+.home-content p {
+    font-size: 1.6rem;
+    font-weight: 400;
+    line-height: 1.8;
+    max-width: 1000px;
+}
+
+.social-icons a {
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+    width: 4.5rem;
+    height: 4.5rem;
+    background: transparent;
+    border: 2px solid var(--main-color);
+    font-size: 2.5rem;
+    border-radius: 50%;
+    color: var(--main-color);
+    margin: 3rem 1.5rem 3rem 0;
+    transition: all 0.3s ease-in-out;
+}
+
+.social-icons a:hover {
+    color: var(--text-color);
+    transform: scale(1.3) translateY(-5px);
+    box-shadow: 0 0 25px var(--main-color);
+    background-color: var(--main-color);
+}
+
+.btn {
+    display: inline-block;
+    padding: 1.2rem 3rem;
+    background: var(--main-color);
+    border-radius: 4rem;
+    font-size: 1.6rem;
+    color: rgb(255, 255, 255);
+    border: 2px solid transparent;
+    letter-spacing: 0.1rem;
+    font-weight: 600;
+    transition: all 0.3s ease-in-out;
+    cursor: pointer;
+}
+
+.btn:hover {
+    transform: scale(1.05);
+    box-shadow: 0 0 25px var(--hover-color);
+}
+
+.btn-group {
+    display: flex;
+    align-items: center;
+    gap: 1.5rem;
+}
+
+.btn-group a:nth-of-type(2) {
+    background-color: transparent;
+    color: var(--main-color);
+    border: 2px solid var(--main-color);
+    box-shadow: none;
+}
+
+.btn-group a:nth-of-type(2):hover {
+    box-shadow: 0 0 25px var(--hover-color);
+    background-color: var(--hover-color);
+    color: black;
+}
+
+.text-animation {
+    font-size: 34px;
+    font-weight: 600;
+    min-width: 280px;
+}
+
+.text-animation span {
+    position: relative;
+    display: inline-block;
+}
+
+.text-animation span::before {
+    content: "Web Developer"; /* Corrected spelling */
+    color: var(--main-color);
+    animation: words 20s infinite;
+}
+
+.text-animation span::after {
+    content: "";
+    background-color: var(--bg-color);
+    position: absolute;
+    width: calc(100% + 9px);
+    height: 100%;
+    border-left: 3px solid var(--bg-color);
+    right: -8px;
+    animation: cursor 0.5s infinite, typing 20s steps(14) infinite;
+}
+
+@keyframes cursor {
+    to {
+        border-left: 2px solid var(--main-color);
+    }
+}
+
+@keyframes words {
+    0%, 20% { content: "Electronics Engineer"; }
+    21%, 40% { content: "Editor"; }
+    41%, 60% { content: "Gamer"; }
+    61%, 80% { content: "Photographer"; }
+    81%, 100% { content: "Also cyber assest"; }
+}
+
+@keyframes typing {
+    10%, 15%, 30%, 35%, 50%, 55%, 70%, 75%, 90%, 95% {
+        width: 0;
+    }
+    5%, 20%, 25%, 40%, 45%, 60%, 65%, 80%, 85% {
+        width: calc(100% + 8px);
+    }
+}
+
+.heading{
+    font-size: 8rem;
+    text-align: center;
+    margin: 5rem 0;
+}
+.education-section {
+    max-width: 800px;
+    margin: 50px auto;
+    padding: 20px;
+    background: rgba(38, 157, 255, 0.308);
+    border-radius: 8px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+    text-align: center;
+}
+
+.education-section h1 {
+    font-size: 2.5rem;
+    margin-bottom: 10px;
+}
+
+.line {
+    width: 80px;
+    height: 2px;
+    background: #007bff;
+    margin: 0 auto 20px;
+}
+
+.timeline {
+    position: relative;
+    padding: 10px 0;
+}
+
+.timeline-item {
+    position: relative;
+    padding: 20px;
+    border-left: 2px solid #007bff;
+}
+
+.timeline-item:before {
+    content: "";
+    position: absolute;
+    left: -8px;
+    top: 20px;
+    width: 16px;
+    height: 16px;
+    background-color: #007bff;
+    border-radius: 50%;
+}
+
+.date {
+    font-size: 1rem;
+    color: #ffffff;
+    margin-bottom: 5px;
+}
+
+.content h2 {
+    font-size: 1.5rem;
+    margin: 5px 0;
+}
+
+.content p {
+    margin: 0;
+    color: #6db9ff;
+}
+
+::-webkit-scrollbar{
+    width: 9px;
+}
+::-webkit-scrollbar-thumb{
+    background-color: var(--main-color);
+}
+
+::-webkit-scrollbar-track{
+    background-color: var(--bg-color);
+    width: 10px;
+}
+/* Media queries for screens up to 768px (tablets and mobile devices) */
+@media (max-width: 768px) {
+    section {
+        flex-direction: column; /* Stack items vertically */
+        padding: 3rem 2rem;
+        gap: 2rem; /* Add space between elements */
+        align-items: center; /* Center all content in the section */
+    }
+
+    .home-image {
+        order: 1; /* Ensure image appears first */
+        display: flex;
+        left: 8px;
+        justify-content: space-between; /* Center the image horizontally */
+        align-items: center; /* Center the image vertically */
+        width: 100%; /* Ensure container takes full width */
+        margin: 0 auto; /* Ensure the container itself is centered */
+    }
+
+    .home-image img {
+        width: 300px; /* Adjust image size for mobile */
+        height: 300px;
+        border-radius: 50%; /* Keep circular shape */
+        transition: all 0.4s ease-in-out;
+        display: block; /* Ensures image behaves like a block element */
+    }
+
+    .home-content {
+        order: 2; /* Ensure text content appears after the image */
+        display: flex;
+        flex-direction: column;
+        align-items: center; /* Center the content */
+        text-align: center;
+        margin-top: 2rem;
+        max-width: 100%; /* Ensure full width */
+    }
+
+    .home-content h1 {
+        font-size: 4rem; /* Adjust heading size for mobile */
+        line-height: 1.3;
+    }
+
+    .home-content h3 {
+        font-size: 2rem;
+        margin-bottom: 1.5rem;
+    }
+
+    .home-content p {
+        font-size: 1.4rem;
+        line-height: 1.6;
+    }
+}
+
+/* Extra small screens (phones less than 576px) */
+@media (max-width: 576px) {
+    section {
+        padding: 2rem 1rem; /* Smaller padding for very small screens */
+        gap: 1.5rem; /* Reduce space between elements */
+        align-items: center; /* Ensure all elements are centered */
+    }
+
+    .home-image img {
+        width: 250px; /* Reduce image size for smaller screens */
+        height: 250px;
+    }
+
+    .home-content h1 {
+        font-size: 3.5rem; /* Further reduce heading size */
+    }
+
+    .home-content p {
+        font-size: 1.2rem; /* Smaller paragraph text for small screens */
+        line-height: 1.5;
+    }
+}
+
+
+
+#menu-icon {
+    display: none;
+    font-size: 3rem;
+    color: var(--main-color);
+    cursor: pointer;
+}
+
+/* Style for the navbar links */
+.navbar {
+    display: flex;
+    gap: 2rem;
+}
+
+/* Style for the navbar links */
+.navbar a {
+    font-size: 1.8rem;
+    color: var(--text-color);
+    text-decoration: none;
+    padding: 0.5rem 1rem;
+}
+
+/* On mobile, show the hamburger icon and hide the navbar links */
+@media (max-width: 768px) {
+    #menu-icon {
+        display: block; /* Show the menu icon on smaller screens */
+    }
+
+    .navbar {
+        position: fixed;
+        top: 0;
+        right: -100%; /* Initially off-screen */
+        height: 100vh;
+        width: 250px;
+        background: var(--second-bg-color);
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        gap: 3rem;
+        transition: right 0.4s ease; /* Smooth transition */
+    }
+
+    .navbar.active {
+        right: 0; /* Slide the navbar into view when active */
+    }
+
+    .navbar a {
+        font-size: 2rem; /* Slightly larger text */
+        color: var(--text-color);
+        width: 100%;
+        text-align: center;
+        padding: 1.5rem 0;
+    }
+}
+
+/* Extra small screens (phones less than 576px) */
+@media (max-width: 576px) {
+    .navbar a {
+        font-size: 1.6rem; /* Further reduce font size for very small screens */
+    }
+
+    .navbar {
+        width: 200px; /* Adjust width for smaller screens */
+    }
+}
+
+.timeline-item {
+    opacity: 0; /* Start hidden */
+    transform: translateY(50px); /* Move down */
+    transition: opacity 0.5s ease, transform 0.5s ease; /* Smooth transition */
+}
+
+.timeline-item.visible {
+    opacity: 1; /* Show the element */
+    transform: translateY(0); /* Move to original position */
+}
+
+
+
+
+.container__progressbars {
+    display: flex;
+    justify-content: space-around;
+    flex-wrap: wrap;
+}
+
+.progressbar {
+    position: relative;
+    width: 150px; /* Base size */
+    height: 150px; /* Base size */
+    margin: 20px;
+}
+
+.progressbar__svg {
+    transform: rotate(-90deg); /* Rotate the SVG */
+    width: 100%;
+    height: 100%;
+}
+
+.progressbar__svg-circle {
+    fill: none;
+    stroke-width: 20;
+    transition: stroke-dasharray 0.3s ease;
+}
+
+.circle-html {
+    stroke: #e44d26; /* HTML color */
+    stroke-dasharray: 440; /* Circumference */
+    stroke-dashoffset: 440; /* Start hidden */
+    animation: html-progress 2s forwards; /* Animation for HTML */
+}
+
+.progressbar.animate .circle-html {
+    animation: html-progress 2s forwards;
+}
+
+.progressbar:not(.animate) .circle-html {
+    animation: html-progress-reverse 2s forwards;
+}
+
+.circle-css {
+    stroke: #1572B6; /* CSS color */
+    stroke-dasharray: 440; /* Circumference */
+    stroke-dashoffset: 440; /* Start hidden */
+    animation: css-progress 2s forwards; /* Animation for CSS */
+}
+
+.progressbar.animate .circle-css {
+    animation: css-progress 2s forwards;
+}
+
+.progressbar:not(.animate) .circle-css {
+    animation: css-progress-reverse 2s forwards;
+}
+
+.circle-scss {
+    stroke: #c42b78; /* SCSS color */
+    stroke-dasharray: 440; /* Circumference */
+    stroke-dashoffset: 440; /* Start hidden */
+    animation: scss-progress 2s forwards; /* Animation for SCSS */
+}
+
+.progressbar.animate .circle-scss {
+    animation: scss-progress 2s forwards;
+}
+
+.progressbar:not(.animate) .circle-scss {
+    animation: scss-progress-reverse 2s forwards;
+}
+
+
+.circle-js {
+    stroke: #f7df1e; /* JavaScript color */
+    stroke-dasharray: 440; /* Circumference */
+    stroke-dashoffset: 440; /* Start hidden */
+    animation: js-progress 2s forwards; /* Animation for JavaScript */
+}
+.progressbar.animate .circle-js {
+    animation: js-progress 2s forwards;
+}
+
+.progressbar:not(.animate) .circle-js {
+    animation: js-progress-reverse 2s forwards;
+}
+
+
+.progressbar__text {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    font-size: 1.2rem;
+    font-weight: bold;
+    text-align: center;
+    color: #fff; /* Text color */
+    z-index: 1; /* Ensures the text is above the circle */
+}
+
+@keyframes html-progress {
+    from {
+        stroke-dashoffset: 440; /* Start from hidden */
+    }
+    to {
+        stroke-dashoffset: 0; /* End at 50% */
+    }
+}
+
+@keyframes html-progress-reverse {
+    from {
+        stroke-dashoffset: 0; /* Start from the end position (80%) */
+    }
+    to {
+        stroke-dashoffset: 440; /* End at +90 degrees, 75% progress */
+    }
+}
+@keyframes css-progress {
+    from {
+        stroke-dashoffset: 440; /* Start from hidden */
+    }
+    to {
+        stroke-dashoffset: 0; /* End at 65% */
+    }
+}
+@keyframes css-progress-reverse {
+    from {
+        stroke-dashoffset: 0; /* Start from the end position (80%) */
+    }
+    to {
+        stroke-dashoffset: 440; /* End at +90 degrees, 75% progress */
+    }
+}
+
+@keyframes scss-progress {
+    from {
+        stroke-dashoffset: 440; /* Start from hidden */
+    }
+    to {
+        stroke-dashoffset: 100; /* End at 77% */
+    }
+}
+@keyframes scss-progress-reverse {
+    from {
+        stroke-dashoffset: 0; /* Start from the end position (80%) */
+    }
+    to {
+        stroke-dashoffset: 440; /* End at +90 degrees, 75% progress */
+    }
+}
+
+
+@keyframes js-progress {
+    from {
+        stroke-dashoffset: 440; /* Start from hidden */
+    }
+    to {
+        stroke-dashoffset: 40; /* End at 86% */
+    }
+}
+@keyframes js-progress-reverse {
+    from {
+        stroke-dashoffset: 0; /* Start from the end position (80%) */
+    }
+    to {
+        stroke-dashoffset: 440; /* End at +90 degrees, 75% progress */
+    }
+}
+
+
+@media (max-width: 768px) {
+    .progressbar {
+        width: 150px; /* Smaller size for mobile */
+        height: 150px; /* Smaller size for mobile */
+    }
+
+    .progressbar__text {
+        margin-left: 3px;
+        font-size: 1rem; /* Smaller text for mobile */
+    }
+}

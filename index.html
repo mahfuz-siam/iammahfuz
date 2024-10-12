@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Mahafuz portfolio</title>
+    <link rel="stylesheet" href="style.css">
+    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+</head>
+<body>
+    <div class="loader-container">
+        <div class="container">
+          <div class="top">
+            <div class="square">
+              <div class="square">
+                <div class="square">
+                  <div class="square">
+                    <div class="square"><div class="square"></div></div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="bottom">
+            <div class="square">
+              <div class="square">
+                <div class="square">
+                  <div class="square">
+                    <div class="square"><div class="square"></div></div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="left">
+            <div class="square">
+              <div class="square">
+                <div class="square">
+                  <div class="square">
+                    <div class="square"><div class="square"></div></div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="right">
+            <div class="square">
+              <div class="square">
+                <div class="square">
+                  <div class="square">
+                    <div class="square"><div class="square"></div></div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      
+<header class="header">
+    <a href="#home" class="logo">Mahfuz<span>Islam</span> </a>
+
+    <i class='bx bx-menu' id="menu-icon"></i>
+
+<nav class="navbar">
+
+<a href="#home" class="active"Home></a>
+<a href="#education">Education</a>
+<a href="#services">Services</a>
+<a href="#skill">Skil</a>
+<a href="#photos">Photos</a>
+<a href="#contact">Contact</a>
+</nav>
+</header>
+
+<section class="home" id="home">
+    <div class="home-content">
+        <h1>Engi. <span class="red">Mahfuz</span> Islam</h1>
+        <h3 >I'm a <span class="text-animation"><span></span></h3>
+        <p>
+         I'm Mahfuz islam Student of Rajshahi Polytechnic Institute and professional gamer.I'm 18 years old.My favourite passion is playing with girls heart, but my heart is very soft. Even after so much happened in life I am still single.Contact this single guy on facebook to make him mingle.
+        <div class="social-icons">
+            <a href="#"><i class='bx bxl-linkedin-square'></i></a>
+            <a href="#"><i class='bx bxl-github'></i></a>
+            <a href="#"><i class='bx bxl-twitter'></i></a>
+            <a href="#"><i class='bx bxl-facebook-circle'></i></a>        
+        </div>
+        <div class="btn-goup">
+             <a href="#" class="btn">Hire</a>
+              <a href="#contact" class="btn">Contact</a>
+        </div>
+    </div>
+    <div class="home-image">
+        <img src="image-p.jpg" alt="">
+    </div>
+</section>
+
+
+<section class="education-section">
+ Education
+    <div class="line"></div>
+
+    <div class="timeline">
+        <div class="timeline-item">
+            <div class="date">2022 - Present</div>
+            <div class="content">
+                <h2>Diploma in Electronics</h2>
+                <p>Rajshahi govt. Polytechnic Institute</p>
+            </div>
+        </div>
+        <div class="timeline-item">
+            <div class="date">2019 - 2022</div>
+            <div class="content">
+                <h2>Secondary School Certificate (SSC)</h2>
+                <p>Rajabari Hat High School
+                </p>
+            </div>
+        </div>
+        <!-- <div class="timeline-item">
+            <div class="date">2017 - 2019</div>
+            <div class="content">
+                <h2>Internship</h2>
+                <p>As a maneger</p>
+            </div>
+        </div> -->
+    </div>
+</section>
+
+<section class="progress">
+  <h1>Skil</h1>
+ 
+  <div class="container">
+    <section class="container__progressbars">
+        <div class="progressbar">
+            <svg class="progressbar__svg">
+                <circle cx="80" cy="80" r="60" class="progressbar__svg-circle circle-html shadow-html"></circle>
+            </svg>
+            <span class="progressbar__text shadow-html">HTML</span>
+        </div>
+
+        <div class="progressbar">
+            <svg class="progressbar__svg">
+                <circle cx="80" cy="80" r="60" class="progressbar__svg-circle circle-css shadow-css"></circle>
+            </svg>
+            <span class="progressbar__text shadow-css">CSS</span>
+        </div>
+
+        <div class="progressbar">
+            <svg class="progressbar__svg">
+                <circle cx="80" cy="80" r="60" class="progressbar__svg-circle circle-scss shadow-scss"></circle>
+            </svg>
+            <span class="progressbar__text shadow-scss">SCSS</span>
+        </div>
+
+        <div class="progressbar">
+            <svg class="progressbar__svg">
+                <circle cx="80" cy="80" r="60" class="progressbar__svg-circle circle-js shadow-js"></circle>
+            </svg>
+            <span class="progressbar__text shadow-js">JavaScript</span>
+        </div>
+    </section>
+</div>
+
+
+</section>
+<script>
+window.addEventListener("load", () => {
+  setTimeout(() => {
+    // Fade out the loader by changing opacity
+    document.querySelector(".loader-container").style.opacity = "0";
+    
+    // After the transition (1 second), set display to none
+    setTimeout(() => {
+      document.querySelector(".loader-container").style.display = "none";
+    }, 1000); // Matches the transition duration (1 second)
+  }, 3000); // Delay before the loader fades out (e.g., 3 seconds)
+});
+
+  </script>
+  
+    <script src="script.js"></script>
+</body>
+</html>
