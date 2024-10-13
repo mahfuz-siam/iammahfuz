@@ -19,7 +19,7 @@ document.addEventListener('DOMContentLoaded', () => {
     const observerOptions = {
         root: null,
         rootMargin: '0px',
-        threshold: 0.1
+        threshold: 1
     };
 
     const observer = new IntersectionObserver((entries) => {
@@ -63,3 +63,42 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 
     window.addEventListener('scroll', animateProgressBars);
+
+
+    // Create the observer
+const cards = document.querySelectorAll('.photo .card');
+const observer = new IntersectionObserver((entries) => {
+  entries.forEach(entry => {
+    if (entry.isIntersecting) {
+      entry.target.classList.add('animate'); // Add animation when entering view
+    } else {
+      entry.target.classList.remove('animate'); // Remove animation when leaving view
+    }
+  });
+});
+
+// Attach the observer to each card
+cards.forEach(card => {
+  observer.observe(card);
+});
+
+
+document.addEventListener('DOMContentLoaded', function () {
+    const reviewCards = document.querySelectorAll('.review-card');
+
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('in-view');
+        } else {
+          entry.target.classList.remove('in-view');
+        }
+      });
+    }, {
+      threshold: 0.1  // Trigger when at least 10% of the card is visible
+    });
+
+    reviewCards.forEach(card => {
+      observer.observe(card);
+    });
+  });
